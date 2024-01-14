@@ -6,6 +6,7 @@ type StopWatchProps = {
   time: string;
   isCounting: boolean;
   handleStart: () => void;
+  handleStop: () => void;
 };
 
 // A separate component that represents the stopwatch display
@@ -13,6 +14,7 @@ export default function StopWatch({
   time,
   isCounting,
   handleStart,
+  handleStop,
 }: StopWatchProps) {
   return (
     <div className={styles.container}>
@@ -26,7 +28,12 @@ export default function StopWatch({
           disabled={isCounting}
           handleClick={handleStart}
         />
-        {/* <StopWatchButton label="Stop" />
+        <StopWatchButton
+          label="Stop"
+          disabled={!isCounting}
+          handleClick={handleStop}
+        />
+        {/* 
         <StopWatchButton label="Lap" />
         <StopWatchButton label="Reset" /> */}
       </div>

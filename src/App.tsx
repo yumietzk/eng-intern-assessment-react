@@ -23,11 +23,19 @@ export default function App() {
     }, 1000);
   }
 
+  // Stop counting
+  function handleStop() {
+    setIsCounting(false);
+
+    clearInterval(intervalRef.current);
+  }
+
   return (
     <StopWatch
       time={formattedTime}
       isCounting={isCounting}
       handleStart={handleStart}
+      handleStop={handleStop}
     />
   );
 }
