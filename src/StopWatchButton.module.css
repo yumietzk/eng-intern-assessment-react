@@ -6,3 +6,7 @@
   cursor: pointer;
   font-size: 2.5rem;
 }
+
+.button:disabled {
+  cursor: not-allowed;
+}

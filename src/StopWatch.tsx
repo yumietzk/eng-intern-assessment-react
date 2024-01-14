@@ -2,19 +2,33 @@ import React from "react";
 import StopWatchButton from "./StopWatchButton";
 import styles from "./StopWatch.module.css";
 
+type StopWatchProps = {
+  time: string;
+  isCounting: boolean;
+  handleStart: () => void;
+};
+
 // A separate component that represents the stopwatch display
-export default function StopWatch() {
+export default function StopWatch({
+  time,
+  isCounting,
+  handleStart,
+}: StopWatchProps) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Stopwatch</h1>
-      <p className={styles.time}>00:00:00</p>
+      <p className={styles.time}>{time}</p>
 
       {/* Render buttons */}
       <div className={styles.buttons}>
-        <StopWatchButton label="Start" />
-        <StopWatchButton label="Stop" />
+        <StopWatchButton
+          label="Start"
+          disabled={isCounting}
+          handleClick={handleStart}
+        />
+        {/* <StopWatchButton label="Stop" />
         <StopWatchButton label="Lap" />
-        <StopWatchButton label="Reset" />
+        <StopWatchButton label="Reset" /> */}
       </div>
 
       {/* Render laps */}
