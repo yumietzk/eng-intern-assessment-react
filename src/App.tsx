@@ -15,10 +15,10 @@ export default function App() {
     setIsCounting(true);
 
     clearInterval(intervalRef.current);
-    // Update every second
+    // Update every 10ms
     intervalRef.current = setInterval(() => {
       setTime((t) => t + 1);
-    }, 1000);
+    }, 10);
   }
 
   // Stop counting
