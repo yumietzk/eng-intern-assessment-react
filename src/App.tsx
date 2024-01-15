@@ -6,11 +6,9 @@ import "./App.css";
 export default function App() {
   const [time, setTime] = useState(0);
   const [isCounting, setIsCounting] = useState(false);
+  const [laps, setLaps] = useState([]);
 
   const intervalRef = useRef(null);
-
-  // Convert the time state to an ISO string, and extract the time portion(xx:xx:xx) from the ISO string
-  const formattedTime = new Date(time * 1000).toISOString().slice(11, -5);
 
   // Start counting
   function handleStart() {
@@ -30,12 +28,19 @@ export default function App() {
     clearInterval(intervalRef.current);
   }
 
+  // Record laps
+  function handleRecordLaps() {
+    setLaps((l) => [...l, time]);
+  }
+
   return (
     <StopWatch
-      time={formattedTime}
+      time={time}
       isCounting={isCounting}
+      laps={laps}
       handleStart={handleStart}
       handleStop={handleStop}
+      handleRecordLaps={handleRecordLaps}
     />
   );
 }
