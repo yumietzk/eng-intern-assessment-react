@@ -47,17 +47,20 @@ export default function StopWatch({
 
       {/* Render laps */}
       <div className={styles["lap-table"]} data-testid="lap-list">
-        {laps.map((lap, i) => {
-          const elapsedTime = i === 0 ? lap : lap - laps[i - 1];
-          const formattedElapsedTime = formatTime(elapsedTime);
+        {/* Render laps in an ascending order */}
+        {laps
+          .map((lap, i) => {
+            const elapsedTime = i === 0 ? lap : lap - laps[i - 1];
+            const formattedElapsedTime = formatTime(elapsedTime);
 
-          return (
-            <div key={i} className={styles["lap-row"]}>
-              <p>Lap {i + 1}</p>
-              <p>{formattedElapsedTime}</p>
-            </div>
-          );
-        })}
+            return (
+              <div key={i} className={styles["lap-row"]}>
+                <p>Lap {i + 1}</p>
+                <p>{formattedElapsedTime}</p>
+              </div>
+            );
+          })
+          .reverse()}
       </div>
     </div>
   );

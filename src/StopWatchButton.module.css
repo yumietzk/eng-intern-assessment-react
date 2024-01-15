@@ -1,12 +1,33 @@
 .button {
-  height: 9rem;
-  width: 9rem;
+  height: 10rem;
+  width: 10rem;
   border: 1px solid #000;
   border-radius: 50%;
+  background-color: #ececec;
   cursor: pointer;
   font-size: 2.5rem;
 }
 
 .button:disabled {
   cursor: not-allowed;
+}
+
+@media only screen and (max-width: 450px) {
+  .button {
+    height: 8.5rem;
+    width: 8.5rem;
+    font-size: 2rem;
+  }
+}
+
+.start {
+  color: #008000;
+  border-color: #008000;
+  background-color: #d1f0d1;
+}
+
+.stop {
+  color: #ff0000;
+  border-color: #ff0000;
+  background-color: #f1d0d0;
 }

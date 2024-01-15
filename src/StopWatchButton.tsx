@@ -15,7 +15,9 @@ export default function StopWatchButton({
 }: StopWatchButtonProps) {
   return (
     <button
-      className={styles.button}
+      className={`${styles.button} ${label === "Start" && styles.start} ${
+        label === "Stop" && styles.stop
+      }`}
       type="button"
       disabled={disabled}
       onClick={handleClick}
