@@ -20,10 +20,8 @@ export default function App() {
       time={time}
       isCounting={isCounting}
       laps={laps}
-      handleStart={handleStart}
-      handleStop={handleStop}
-      handleRecordLaps={handleRecordLaps}
-      handleReset={handleReset}
+      handleStartStop={isCounting ? handleStop : handleStart}
+      handleLapsReset={isCounting ? handleRecordLaps : handleReset}
     />
   );
 }

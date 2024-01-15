@@ -1,0 +1,11 @@
+.lap-table {
+  margin-top: 5rem;
+  font-size: 3.5rem;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 450px) {
+  .lap-table {
+    font-size: 3rem;
+  }
+}

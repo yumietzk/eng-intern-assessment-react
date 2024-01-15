@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 export function useTime() {
   const [time, setTime] = useState(0);
   const [isCounting, setIsCounting] = useState(false);
-  const [laps, setLaps] = useState([]);
+  const [laps, setLaps] = useState<Array<number>>([]);
 
   const intervalRef = useRef(null);
 
