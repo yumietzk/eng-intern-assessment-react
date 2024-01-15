@@ -3,7 +3,7 @@ import styles from "./StopWatchButton.module.css";
 
 type StopWatchButtonProps = {
   label: string;
-  disabled: boolean;
+  disabled?: boolean;
   handleClick: () => void;
 };
 

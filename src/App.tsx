@@ -33,6 +33,15 @@ export default function App() {
     setLaps((l) => [...l, time]);
   }
 
+  // Reset to zero
+  function handleReset() {
+    setIsCounting(false);
+
+    setTime(0);
+    setLaps([]);
+    clearInterval(intervalRef.current);
+  }
+
   return (
     <StopWatch
       time={time}
@@ -41,6 +50,7 @@ export default function App() {
       handleStart={handleStart}
       handleStop={handleStop}
       handleRecordLaps={handleRecordLaps}
+      handleReset={handleReset}
     />
   );
 }

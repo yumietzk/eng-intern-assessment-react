@@ -10,6 +10,7 @@ type StopWatchProps = {
   handleStart: () => void;
   handleStop: () => void;
   handleRecordLaps: () => void;
+  handleReset: () => void;
 };
 
 // A separate component that represents the stopwatch display
@@ -20,6 +21,7 @@ export default function StopWatch({
   handleStart,
   handleStop,
   handleRecordLaps,
+  handleReset,
 }: StopWatchProps) {
   const formattedTime = formatTime(time);
 
@@ -31,23 +33,16 @@ export default function StopWatch({
       {/* Render buttons */}
       <div className={styles.buttons}>
         <StopWatchButton
-          label="Start"
-          disabled={isCounting}
-          handleClick={handleStart}
+          label={isCounting || time === 0 ? "Lap" : "Reset"}
+          disabled={time === 0}
+          handleClick={
+            isCounting ? handleRecordLaps : time !== 0 ? handleReset : null
+          }
         />
         <StopWatchButton
-          label="Lap"
-          disabled={!isCounting}
-          handleClick={handleRecordLaps}
+          label={isCounting ? "Stop" : "Start"}
+          handleClick={isCounting ? handleStop : handleStart}
         />
-        <StopWatchButton
-          label="Stop"
-          disabled={!isCounting}
-          handleClick={handleStop}
-        />
-        {/* 
-        <StopWatchButton label="Lap" />
-        <StopWatchButton label="Reset" /> */}
       </div>
 
       {/* Render laps */}
