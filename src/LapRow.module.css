@@ -1,0 +1,9 @@
+.lap-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lap-row:not(:last-of-type) {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,51 @@
+.button {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #ececec;
+  cursor: pointer;
+  font-size: 2.5rem;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background-color: #dfdfdf;
+}
+
+.button:focus-visible {
+  outline: #18d325 solid 2px;
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 450px) {
+  .button {
+    height: 8.5rem;
+    width: 8.5rem;
+    font-size: 2rem;
+  }
+}
+
+.start {
+  color: #008000;
+  border-color: #008000;
+  background-color: #e0f3e0;
+}
+
+.start:hover {
+  background-color: #c3efc3;
+}
+
+.stop {
+  color: #ff0000;
+  border-color: #ff0000;
+  background-color: #f6e9e9;
+}
+
+.stop:hover {
+  background-color: #f1d0d0;
+}
