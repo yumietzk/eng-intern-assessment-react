@@ -1,7 +1,8 @@
-import React from "react";
+import React, { lazy } from "react";
 import { useTime } from "./hooks/useTime";
-import StopWatch from "./StopWatch";
 import "./App.css";
+
+const StopWatch = lazy(() => import("./StopWatch"));
 
 // The main component that renders the stopwatch and handles its functionality
 export default function App() {

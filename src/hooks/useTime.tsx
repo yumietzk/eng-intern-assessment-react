@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 export function useTime() {
   const [time, setTime] = useState(0);
@@ -8,7 +8,7 @@ export function useTime() {
   const intervalRef = useRef(null);
 
   // Start counting
-  function handleStart() {
+  const handleStart = useCallback(() => {
     setIsCounting(true);
 
     clearInterval(intervalRef.current);
@@ -16,28 +16,28 @@ export function useTime() {
     intervalRef.current = setInterval(() => {
       setTime((t) => t + 1);
     }, 10);
-  }
+  }, []);
 
   // Stop counting
-  function handleStop() {
+  const handleStop = useCallback(() => {
     setIsCounting(false);
 
     clearInterval(intervalRef.current);
-  }
+  }, []);
 
   // Record laps
-  function handleRecordLaps() {
+  const handleRecordLaps = useCallback(() => {
     setLaps((l) => [...l, time]);
-  }
+  }, [time]);
 
   // Reset to zero
-  function handleReset() {
+  const handleReset = useCallback(() => {
     setIsCounting(false);
 
     setTime(0);
     setLaps([]);
     clearInterval(intervalRef.current);
-  }
+  }, []);
 
   return {
     time,

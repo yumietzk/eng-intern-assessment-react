@@ -6,11 +6,14 @@ type LapRowProps = {
   index: number;
 };
 
-export default function LapRow({ lapTime, index }: LapRowProps) {
+// A separate component that represents each lap
+const LapRow = React.memo(function LapRow({ lapTime, index }: LapRowProps) {
   return (
     <li className={styles["lap-row"]}>
       <span>Lap {index + 1}</span>
       <span>{lapTime}</span>
     </li>
   );
-}
+});
+
+export default LapRow;
