@@ -17,7 +17,9 @@ describe("useTime custom hook", () => {
       jest.advanceTimersByTime(10);
     });
 
+    // Check if counting has started
     expect(result.current.isCounting).toBe(true);
+    // Check if the time is updated
     expect(result.current.time).toBe(1);
   });
 
@@ -29,6 +31,7 @@ describe("useTime custom hook", () => {
       result.current.handleStop();
     });
 
+    // Check if counting has stopped
     expect(result.current.isCounting).toBe(false);
   });
 
@@ -42,6 +45,7 @@ describe("useTime custom hook", () => {
       result.current.handleRecordLaps();
     });
 
+    // Check if laps are recorded
     expect(result.current.laps.length).toBe(2);
   });
 
@@ -53,7 +57,9 @@ describe("useTime custom hook", () => {
       result.current.handleReset();
     });
 
+    // Check if counting has stopped
     expect(result.current.isCounting).toBe(false);
+    // Check if the time is reset to 0
     expect(result.current.time).toBe(0);
     // Check if the laps time is also reset
     expect(result.current.laps.length).toBe(0);
