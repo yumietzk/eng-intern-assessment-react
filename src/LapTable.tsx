@@ -9,7 +9,7 @@ type LapTableProps = {
 
 export default function LapTable({ laps }: LapTableProps) {
   return (
-    <div className={styles["lap-table"]} data-testid="lap-list">
+    <ul className={styles["lap-table"]}>
       {laps
         .map((lap, i) => {
           const elapsedTime = i === 0 ? lap : lap - laps[i - 1];
@@ -18,6 +18,6 @@ export default function LapTable({ laps }: LapTableProps) {
           return <LapRow key={i} lapTime={formattedElapsedTime} index={i} />;
         })
         .reverse()}
-    </div>
+    </ul>
   );
 }

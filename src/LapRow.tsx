@@ -8,9 +8,9 @@ type LapRowProps = {
 
 export default function LapRow({ lapTime, index }: LapRowProps) {
   return (
-    <div className={styles["lap-row"]}>
-      <p>Lap {index + 1}</p>
-      <p>{lapTime}</p>
-    </div>
+    <li className={styles["lap-row"]}>
+      <span>Lap {index + 1}</span>
+      <span>{lapTime}</span>
+    </li>
   );
 }
